@@ -1,0 +1,35 @@
+@import 'reset.scss';
+@import './variables/global.scss';
+@import './themes/dark.scss';
+@import './themes/light.scss';
+
+@mixin theme-colors($bg-color, $primary-color, $secondary-color) {
+	background-color: $bg-color;
+	color: $primary-color;
+
+	.secondary {
+		color: $secondary-color;
+	}
+}
+
+.app {
+	@include font-setup($font-size-m, $font-line-m, $font-family-main);
+
+	min-height: 100vh;
+
+	&.dark {
+		@include theme-colors(
+			$bg-color-dark,
+			$primary-color-dark,
+			$secondary-color-dark
+		);
+	}
+
+	&.light {
+		@include theme-colors(
+			$bg-color-light,
+			$primary-color-light,
+			$secondary-color-light
+		);
+	}
+}
